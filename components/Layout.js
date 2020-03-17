@@ -2,6 +2,8 @@ import React from "react";
 import { Layout as AntdLayout } from "antd";
 import styled from "styled-components";
 
+import HeaderComponent from "./Header";
+
 const {
   Header: AntdHeader,
   Content: AntdContent,
@@ -32,7 +34,9 @@ const Content = styled(AntdContent)`
 function Layout({ children }) {
   return (
     <AntdLayout>
-      <Header></Header>
+      <Header>
+        <HeaderComponent />
+      </Header>
       <Content>{children}</Content>
       <Footer style={{ textAlign: "center" }}>Open Source on Github.</Footer>
     </AntdLayout>
