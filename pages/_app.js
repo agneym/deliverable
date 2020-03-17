@@ -1,12 +1,9 @@
 import App from 'next/app'
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components';
 
-const theme = {
-  colors: {
-    primary: '#0070f3',
-  },
-}
+import theme from "../lib/styles/theme";
+import Global from "../lib/styles/Global";
 
 export default class CustomApp extends App {
   render() {
@@ -14,6 +11,7 @@ export default class CustomApp extends App {
     return (
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
+        <Global />
       </ThemeProvider>
     )
   }
