@@ -2,23 +2,7 @@ import firebase from "firebase/app";
 import { useEffect, useState } from "react";
 import { List } from "antd";
 
-const categoryMap = {
-  groceries: {
-    label: "Groceries",
-  },
-  medicine: {
-    label: "Medicine",
-  },
-  food: {
-    label: "Food",
-  },
-  supplies: {
-    label: "Supplies",
-  },
-  other: {
-    label: "Other",
-  },
-};
+import Card from "./Card";
 
 const statusMap = {
   pending: "Pending",
@@ -56,14 +40,7 @@ function Listing() {
         itemLayout="horizontal"
         dataSource={data}
         loading={loading}
-        renderItem={service => (
-          <List.Item>
-            <List.Item.Meta
-              title={service.request}
-              description={service.description}
-            />
-          </List.Item>
-        )}
+        renderItem={service => <Card data={service} />}
       />
     </section>
   );
