@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { Form, Input, Button, Checkbox, Alert } from "antd";
 
 const layout = {
@@ -13,22 +14,23 @@ const ErrorContainer = styled.div`
   transform: scaleY(0);
   transform-origin: top center;
   transition: transform 0.2s ease-in-out;
-  padding-bottom: 2rem;
+  height: 0;
 
   ${props =>
     props.show &&
     `
+    height: auto;
     transform: scaleY(1);
   `}
 `;
 
-function LoginForm({ loading }) {
+function LoginForm({ loading, error, loginFn }) {
   return (
     <Form
       {...layout}
       name="basic"
       initialValues={{ remember: true }}
-      onFinish={postLogin}
+      onFinish={loginFn}
     >
       <Form.Item
         label="Email"
