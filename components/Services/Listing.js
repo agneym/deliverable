@@ -4,12 +4,6 @@ import { List } from "antd";
 
 import Card from "./Card";
 
-const statusMap = {
-  pending: "Pending",
-  completed: "Completed",
-  cancelled: "Cancelled",
-};
-
 function Listing() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);

@@ -1,5 +1,10 @@
 import { Avatar, List } from "antd";
 import styled from "styled-components";
+import {
+  TagOutlined,
+  ClockCircleOutlined,
+  CheckCircleOutlined,
+} from "@ant-design/icons";
 
 import foodIcon from "../../assets/food.svg";
 import groceryIcon from "../../assets/groceries.svg";
@@ -29,17 +34,55 @@ const categoryMap = {
   },
 };
 
+const statusMap = {
+  pending: {
+    label: "Pending",
+    icon: ClockCircleOutlined,
+  },
+  completed: {
+    label: "Completed",
+    icon: CheckCircleOutlined,
+  },
+};
+
+const IconContainer = styled.span`
+  margin-right: 0.5rem;
+`;
+
+function TagBadge({ icon: Icon, children }) {
+  return (
+    <p>
+      <IconContainer>
+        <Icon />
+      </IconContainer>
+      {children}
+    </p>
+  );
+}
+
+const ListItem = styled(List.Item)`
+  padding: 3rem 0;
+`;
+
 const ListItemMeta = styled(List.Item.Meta)``;
 
 function Card({ data }) {
   return (
-    <List.Item>
+    <ListItem>
       <ListItemMeta
         avatar={<Avatar src={categoryMap[data.category]?.icon} size="large" />}
         title={data.title}
-        description={data.description.slice(0, 100)}
+        description={data.description}
       />
-    </List.Item>
+      <div>
+        <TagBadge icon={TagOutlined}>
+          {categoryMap[data.category]?.label}
+        </TagBadge>
+        <TagBadge icon={statusMap[data.status]?.icon}>
+          {statusMap[data.status]?.label}
+        </TagBadge>
+      </div>
+    </ListItem>
   );
 }
 

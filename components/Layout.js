@@ -27,7 +27,7 @@ const Content = styled(AntdContent)`
   padding: 0 5rem;
   margin: 64px auto 0;
   min-height: calc(100vh - 64 * 2px);
-  max-width: 60%;
+  max-width: 50%;
   width: 100%;
 `;
 
