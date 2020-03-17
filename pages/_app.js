@@ -8,7 +8,7 @@ const theme = {
   },
 }
 
-export default class MyApp extends App {
+export default class CustomApp extends App {
   render() {
     const { Component, pageProps } = this.props
     return (
