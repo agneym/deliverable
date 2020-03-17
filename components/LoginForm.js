@@ -15,6 +15,7 @@ const ErrorContainer = styled.div`
   transform-origin: top center;
   transition: transform 0.2s ease-in-out;
   height: 0;
+  padding-bottom: 2rem;
 
   ${props =>
     props.show &&
