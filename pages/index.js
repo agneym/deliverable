@@ -1,11 +1,14 @@
 import React from "react";
 
 import { AuthProvider } from "../lib/firebase/Authentication";
+import Layout from "../components/Layout";
 
 function Index() {
   return (
     <AuthProvider>
-      <p>Main page</p>
+      <Layout>
+        <p>Main page</p>
+      </Layout>
     </AuthProvider>
   );
 }
