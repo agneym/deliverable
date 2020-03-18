@@ -1,48 +1,71 @@
-# Example app with styled-components
+<h1 align=center>Deliverable</h1>
+<p align=center>Deliveries in the time of Corona</p>
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/zeit/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+## Motivation
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs#custom-app) component.
+People have been home quarantining themselves for last couple of weeks all around the world to break the spread of Corona Covid19. While the technique has worked wonders to reduce the number of community spreads, the resource issue has been looming in large.
 
-## Deploy your own
+1. People cannot step out to make purchases. This leads to hoarding goods and resources.
+2. People with the fever or symptoms cannot find ways to alert the authorities about their needs and have it delivered to them.
 
-Deploy the example using [ZEIT Now](https://zeit.co/now):
+While there are services in some cities to deal with these scenarios with strong delivery networks, the situation is not the same in rural areas.
 
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/zeit/next.js/tree/canary/examples/with-styled-components)
+## Aim
 
-## How to use
+The web application is build to:
 
-### Using `create-next-app`
+- Help people in all areas and economic standards have access to deleveries of essentials to their home quarantines.
+- Help government organizations and NGOs in delivering essentials to quantined people.
 
-Execute [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## The Flow
 
-```bash
-npm init next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
-```
+![Flowchart](./assets/flow.png)
 
-### Download manually
+<details>
+  <summary>What can user make a request for?</summary>
+  
+  Most delivery apps usually start with user selecting from a list of available items. We currently do not have the luxury for this as such a feature requires store owners to update their stock onto the application. This is not possible to achieve without business support in a short window.
 
-Download the example:
+User can make a request for any goods under categories of Medicine, Groceries, Food, Stationary or other resources (Suggestions welcome!).
 
-```bash
-curl https://codeload.github.com/zeit/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/with-styled-components
-cd with-styled-components
-```
+</details>
 
-Install it and run:
+<details>
+  <summary>How can be volunteers?</summary>
+  
+  * Government agencies/NGOs who have appointed people taking required measures.
+  * Daily wage workers who find themselves out of job and requires a physical job keeping themselves in the locality but out of danger's way.
+  * Youth who can volunteer time and effort to help elderly and people who are at risk.
+</details>
 
-```bash
-npm install
-npm run dev
-# or
-yarn
-yarn dev
-```
+<details>
+  <summary>How is payment handled?</summary>
+  
+  While we would like have credit card and all sorts of payment ready, this would directly conflict with our aim of app being ready for use in _all areas_. Also including something like credit cards brings up the question of credit card fees, taxes and other.
 
-Deploy it to the cloud with [ZEIT Now](https://zeit.co/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+We can always try to include specific accounts by which people can pay each other for their services, like Paypal or UPI ID in India, but a cash transaction is also likely in areas.
 
-### Try it on CodeSandbox
+This will not be handled in the software level and is supposed to be handled in person.
 
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/zeit/next.js/tree/canary/examples/with-styled-components)
+</details>
+
+_Please raise an issue for any more questions and we can discuss._
+
+## The Stack
+
+The web application is setup with [NextJS](https://nextjs.org/) and [Firebase](https://firebase.google.com/).
+
+Location based filtering can be performed with [GeoFire](https://github.com/firebase/geofire-js) and Map can be done with [Google Maps](https://developers.google.com/maps/documentation)
+
+<details>
+  <summary>Why this particular stack?</summary>
+
+Effort is for keeping the stack as simple as possible so that a large number of people can collaborate.
+
+NextJS choosen for it's for [Automatic Static Optimisation](https://nextjs.org/docs/advanced-features/automatic-static-optimization) features and ability to switch to Server Side Rendering if necessary.
+
+Firebase is free and should keep us afloat without asking for donations for a long period of time.
+
+</details>
+
+_If you have concerns or feel another stack can have considerable advantages, create an issue._
