@@ -1,8 +1,13 @@
 const withImages = require("next-images");
 const withCss = require("@zeit/next-css");
 
-module.exports = withImages(
-  withCss({
+module.exports = () => {
+  const envVariables = {
+    env: {
+      appName: 'Deliverable',
+    },
+  }
+  const antdStyles = {
     webpack: (config, { isServer }) => {
       if (isServer) {
         const antStyles = /antd\/.*?\/style\/css.*?/;
@@ -26,5 +31,14 @@ module.exports = withImages(
       }
       return config;
     },
-  })
+  }
+  return withImages(withCss({
+    ...envVariables,
+    ...antdStyles,
+  }));
+}
+
+
+withImages(
+  withCss()
 );

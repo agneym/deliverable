@@ -45,7 +45,7 @@ function Register() {
   return (
     <Main>
       <Head>
-        <title>Register</title>
+        <title>Register - {process.env.appName}</title>
       </Head>
       <FormContainer>
         <RegisterForm
