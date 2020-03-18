@@ -55,6 +55,8 @@ _Please raise an issue for any more questions and we can discuss._
 
 The web application is setup with [NextJS](https://nextjs.org/) and [Firebase](https://firebase.google.com/).
 
+Styling is done with [styled-components](https://styled-components.com/) and ready made components with [Ant Design](https://ant.design/)
+
 Location based filtering can be performed with [GeoFire](https://github.com/firebase/geofire-js) and Map can be done with [Google Maps](https://developers.google.com/maps/documentation)
 
 <details>
@@ -69,3 +71,15 @@ Firebase is free and should keep us afloat without asking for donations for a lo
 </details>
 
 _If you have concerns or feel another stack can have considerable advantages, create an issue._
+
+## Contributing
+
+PRs, Issues, Documentation are always welcome. 
+
+Please have NodeJS >= 10 and NPM >= 6
+To start developing:
+
+```
+npm i
+npm dev
+```
