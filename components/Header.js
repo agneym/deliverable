@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, message } from "antd";
+import { message, Button } from "antd";
 import firebase from "firebase/app";
 
 const Container = styled.div`

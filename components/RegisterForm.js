@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Form, Input, Button, Alert } from "antd";
+import { Form, Input, Button, Radio, Alert } from "antd";
 
 const layout = {
   labelCol: { span: 24 },
@@ -29,7 +29,7 @@ function RegisterForm({ loading, error, onRegister }) {
   return (
     <Form {...layout} name="basic" onFinish={onRegister}>
       <Form.Item
-        label="Email"
+        label="Email Address"
         name="email"
         rules={[
           { required: true, message: "Please input your email!" },
@@ -45,6 +45,21 @@ function RegisterForm({ loading, error, onRegister }) {
         rules={[{ required: true, message: "Please input your password!" }]}
       >
         <Input.Password />
+      </Form.Item>
+
+      <Form.Item label="Sign up as" name="as" labelCol={{ span: 10 }}>
+        <Radio.Group>
+          <Radio.Button value="user">User</Radio.Button>
+          <Radio.Button value="rider">Rider</Radio.Button>
+        </Radio.Group>
+      </Form.Item>
+
+      <Form.Item
+        label="Phone Number"
+        name="phone"
+        rules={[{ required: true, message: "Please share your phone number!" }]}
+      >
+        <Input />
       </Form.Item>
 
       <ErrorContainer show={!!error}>
