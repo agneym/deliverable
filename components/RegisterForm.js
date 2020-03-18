@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Form, Input, Button, Radio, Alert } from "antd";
+import { Form, Input, Button, Radio, Alert, message } from "antd";
+import { useState } from "react";
 
 const layout = {
   labelCol: { span: 24 },
@@ -26,6 +27,27 @@ const ErrorContainer = styled.div`
 `;
 
 function RegisterForm({ loading, error, onRegister }) {
+
+  const [currentLocation, setCurrentLocation] = useState(null);
+
+  const getLocation = () => {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+    navigator.geolocation.getCurrentPosition((position) => {
+      const crd = position.coords;
+      const { latitude, longitude } = crd;
+      setCurrentLocation({
+        latitude,
+        longitude,
+      });
+    }, () => {
+      message.error("Getting location failed!")
+    }, options);
+  }
+
   return (
     <Form {...layout} name="basic" onFinish={onRegister}>
       <Form.Item
@@ -60,6 +82,13 @@ function RegisterForm({ loading, error, onRegister }) {
         rules={[{ required: true, message: "Please share your phone number!" }]}
       >
         <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Allow access to your location"
+        name="location"
+      >
+        <Button block onClick={getLocation}>Access Location</Button>
       </Form.Item>
 
       <ErrorContainer show={!!error}>
